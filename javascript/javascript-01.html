@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<head>
+		<title>Javascript 01</title>
+	</head>
+	<body>
+        <h1>Introduccion al mundo de JavaScript</h1>
+		<div style="color:1827a1">Hola
+		</div>
+		<p>
+            <a href="../index.html">
+                Página principal
+            </a>
+        </p>
+		
+		<h1>Primer ejercicio: Alertas</h1>
+		<button onclick='alert("Hola,¿Qué buen día hace,verdad?")'>Hacer click</button>
+		<button onclick='alert("Adiós,espero verte pronto.")'>Hacer click 2</button>
+
+		<h1>Segundo ejercicio: Cuentas</h1>
+		<script>
+			document.write( 10 + 10 );
+			document.write( '<br/>' );
+			document.write( 96 - 9 );
+			document.write( '</br> ' );
+			document.write( 70 * 2 );
+			document.write( ' </br>' );
+		</script>
+
+		<h1>Tercer ejercicio: Bucles</h1>
+		<script>
+			for(var n=1; n < 11; n++) {
+				document.write(n);
+				document.write( '<br/>' );
+			}
+		
+		</script>
+
+		<h1>Cuarto ejercicio: Hacer un sándwich</h1>
+		<script>
+			function hacer_sandwich ( ingrediente1, ingrediente2,  ) {
+				document.write('Mira el sándwich de '+ingrediente1+ ' y '+ingrediente2 );
+				document.write( '<br/>' );
+                    }
+			hacer_sandwich('atún','lechuga');
+			hacer_sandwich('jabalí','pasta');
+		</script>
+
+		<h1>Quinto ejercicio: Cambiar el color del fondo</h1>
+		<button onclick="cambiarfondo('white')">cambia a blanco</button>
+		<button onclick="cambiarfondo('red')">cambia a rojo</button>
+		<button onclick="cambiarfondo('brown')">cambia a marrón</button>
+		<button onclick="cambiarfondo('yellow')">cambia a amarillo</button>
+		<button onclick="cambiarfondo('orange')">cambia a naranja</button>
+		<button onclick="cambiarfondo('purple')">cambia a lila</button>
+		<button onclick="cambiarfondo('blue')">cambia a azul</button>
+		<button onclick="cambiarfondo('grey')">cambia a gris claro</button>
+		<button onclick="cambiarfondo('green')">cambia a verde claro</button>
+		<button onclick="cambiarfondo('pink')">cambia a rosa</button>
+		<button onclick="cambiarfondo('0a6667')">cambia a verde oscuro</button>
+        <button onclick="cambiarfondo('5f4553')">cambia a gris oscuro</button>
+		<script>
+			function cambiarfondo(col){
+				document.body.style.backgroundColor=col;
+			}
+		</script>
+		
+		<style>
+            table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            }
+        </style>
+		
+		<h1>Sexto ejercicio: Hacer una tienda</h1>
+
+		<h2>Listado productos</h2>
+		<table>
+            <thead>
+                <th>Descripción</th>
+                <th>Comprar</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Batido de colacao</th>
+                    <th>
+                        <button onclick="añadir_a_carrito_textarea('Batido.')">Añadir a carrito</button>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Madera</th>
+                    <th>
+                        <button onclick="añadir_a_carrito_textarea('Madera.')">Añadir a carrito</button>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Diapositivas</th>
+                    <th>
+                        <button onclick="añadir_a_carrito_textarea('Diapositivas disponibles:01,02,03,04,05,06,07,08,09,10.')">Añadir a carrito</button>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+        
+		<h2>Carrito de la compra</h2>
+		<form action="javascript:enviar_formulario();"
+    method="post" name="Prueba envío por email">
+    
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre"><br>
+            
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido"><br>
+            
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" name="direccion"><br>
+
+            <label for="localidad">Localidad:</label>
+            <input type="text" id="localidad" name="localidad"><br>
+
+            <label for="provincia">Provincia:</label>
+            <input type="text" id="provincia" name="provincia"><br>
+
+            <label for="carrito">Carrito:</label>
+            <input type="textarea" id="carrito" name="carrito"><br>
+
+            <input id="submit_form" type="submit" value="Enviar pedido" />    
+        </form>
+        
+        <script>
+            function añadir_a_carrito( producto ){
+				var elemento = document.getElementById("carrito");
+				var html_nuevo = producto + "<br>";
+				elemento.insertAdjacentHTML('beforeend', html_nuevo);
+			}
+            function añadir_a_carrito_textarea( producto ){
+				var elemento = document.getElementById("carrito");
+                var valor_actual = elemento.value;
+				var valor_nuevo = valor_actual + "\n" + producto;
+				elemento.value = valor_nuevo ;
+			}
+			function enviar_formulario () {
+				var nombre = document.getElementById("nombre").value;
+				var apellido = document.getElementById("apellido").value;
+				var direccion = document.getElementById("direccion").value;
+				var localidad = document.getElementById("localidad").value;
+				var provincia = document.getElementById("provincia").value;
+				var carrito = document.getElementById("carrito").value;
+				
+				var cuerpo = nombre +'---' 
+                    + apellido +'---' 
+                    + direccion +'---' 
+                    + localidad+'---' 
+                    + provincia +'---' 
+                    + carrito;
+                    
+                var email = 'mailto:harrymosquera.moody@gmail.com?subject=Pedido&body='+cuerpo;
+                
+                console.log('Email: '+email);
+				
+				window.open( email );
+			}
+		</script>
+	</body>
+</html>
