@@ -80,25 +80,43 @@
             <thead>
                 <th>Descripción</th>
                 <th>Comprar</th>
+                <th>Precio</th>
             </thead>
             <tbody>
                 <tr>
                     <th>Batido de colacao</th>
                     <th>
-                        <button onclick="añadir_a_carrito_textarea('Batido.')">Añadir a carrito</button>
+                        <button onclick="añadir_a_carrito_textarea('Batido 19€.')">Añadir a carrito</button>
                     </th>
+                    <th>19€</th>
                 </tr>
                 <tr>
                     <th>Saúco</th>
                     <th>
-                        <button onclick="añadir_a_carrito_textarea('Saúco.')">Añadir a carrito</button>
+                        <button onclick="añadir_a_carrito_textarea('Saúco 16€.')">Añadir a carrito</button>
                     </th>
+                    <th>16€</th>
                 </tr>
                 <tr>
                     <th>Diapositivas</th>
                     <th>
-                        <button onclick="añadir_a_carrito_textarea('Diapositivas.')">Añadir a carrito</button>
+                        <button onclick="añadir_a_carrito_textarea('Diapositivas 28€.')">Añadir a carrito</button>
                     </th>
+                    <th>28€</th>
+                </tr>
+                <tr>
+                    <th>Libros</th>
+                    <th>
+                        <button onclick="añadir_a_carrito_textarea('Libros 10€.')">Añadir a carrito</button>
+                    </th>
+                    <th>10€</th>
+                    <tr>
+                    <th>Playmobils</th>
+                    <th>
+                        <button onclick="añadir_a_carrito_textarea('Playmobils 12€.')">Añadir a carrito</button>
+                    </th>
+                    <th>12€<th>
+                </tr>
                 </tr>
             </tbody>
         </table>
@@ -125,20 +143,20 @@
             <label for="edad">Edad:</label>
             <input type="text" id="edad" name="edad"><br>
             
-            <label for="carrito">Carrito:</label>
-            <input type="textarea" id="carrito" name="carrito"><br>
+            <label for="carrito">Producto solicitado:</label>
+            <input type="textarea" id="producto solicitado" name="producto solicitado"><br>
 
             <input id="submit_form" type="submit" value="Enviar pedido" />    
         </form>
         
         <script>
             function añadir_a_carrito( producto ){
-				var elemento = document.getElementById("carrito");
+				var elemento = document.getElementById("producto solicitado");
 				var html_nuevo = producto + "<br>";
 				elemento.insertAdjacentHTML('beforeend', html_nuevo);
 			}
             function añadir_a_carrito_textarea( producto ){
-				var elemento = document.getElementById("carrito");
+				var elemento = document.getElementById("producto solicitado");
                 var valor_actual = elemento.value;
 				var valor_nuevo = valor_actual + "\n" + producto;
 				elemento.value = valor_nuevo ;
@@ -149,14 +167,15 @@
 				var direccion = document.getElementById("direccion").value;
 				var localidad = document.getElementById("localidad").value;
 				var provincia = document.getElementById("provincia").value;
-				var carrito = document.getElementById("carrito").value;
+				var producto_solicitado = document.getElementById("producto solicitado").value;
 				
 				var cuerpo = nombre +'---' 
                     + apellido +'---' 
                     + direccion +'---' 
                     + localidad+'---' 
-                    + provincia +'---' 
-                    + carrito;
+                    + provincia +'---'
+                    + edad +'---'
+                    + producto_solicitado;
                     
                 var email = 'mailto:harrymosquera.moody@gmail.com?subject=Pedido&body='+cuerpo;
                 
