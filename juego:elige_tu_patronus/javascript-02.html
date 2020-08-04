@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<title>Elige tu Patronus</title>
+	</head>
+	<body>
+	<p>
+        <a href="../index.html">
+            Volver a Página principal
+        </a>
+    </p>
+	<h1 style="color:brown">Elige tu Patronus</h1>
+	<p style="color:gold">Dale al botón del color que quieres el Patronus, inmediatamente en el recuadro aparecerá tu Patronus y ahuyentarás a los dementores.</p>
+		<img src="" id="foto_patronus" width="400" height="400" style="border:1px solid #000000;">
+		
+		<button onclick='poner_patronus(fotosa)'>Azul</button>
+		<button onclick='poner_patronus(fotoso)'>Oro</button>
+		<button onclick='poner_patronus(fotosv)'>Verde</button>
+		<script>
+		
+            document.body.style.backgroundImage="url('dementores_acercandose.jpg')";
+            document.body.style.backgroundSize="100%";
+
+			var fotosa = [
+				'patronus_perrob.jpg',
+				'patronus_caballob.jpg',
+				'patronus_nutriab.jpg',
+				'patronus_ciervob.jpg',
+				'patronus_liebreb'];
+				
+			var fotoso = [
+				'patronus_perroo.jpg',
+				'patronus_caballoo.jpg',
+				'patronus_nutriao.jpg',
+				'patronus_ciervoo.jpg'];
+				
+            var fotosv = [
+				'patronus_perrov.jpg',
+				'patronus_caballov.jpg',
+				'patronus_nutriav.jpg',
+				'patronus_ciervov.jpg'];
+		
+            function poner_patronus( fotos ){
+            
+				var numero_aleatorio_0a1 = Math.random();
+				var numero_aleatorio_0a4 = 4 * numero_aleatorio_0a1
+				var numero_aleatorio_0a3_entero = Math.floor( numero_aleatorio_0a4 );
+         
+            
+				var elemento = document.getElementById("foto_patronus");
+				
+				elemento.src= fotos[numero_aleatorio_0a3_entero] ;	
+			}
+		
+		
+		</script>
+	</body>
+</html>
