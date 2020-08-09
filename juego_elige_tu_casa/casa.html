@@ -1,0 +1,29 @@
+    <html>
+    <h1 style="color:blue">Elige tu casa del Colegio Hogwarts de Magia y Hechicería</h1>
+    <button onclick='elegir_casa(casas)'>Elige tu casa</button>
+    <p id="eleccion_sombrero_seleccionador" style="color:pink;font-size:64px;font-weight:900;">  </p>
+    <script>
+    
+    document.body.style.backgroundImage="url('gran_comedor.jpg')";
+    document.body.style.backgroundSize="100%";
+
+    var casas = [
+				'Hufflepuff',
+				'Ravenclaw',
+				'Gryffindor',
+				'Slytherin'
+    ];
+                
+    function elegir_casa( casas ){
+    
+        var numero_aleatorio_0a1 = Math.random();
+        var numero_aleatorio_0a4 = 4 * numero_aleatorio_0a1
+        var numero_aleatorio_0a3_entero = Math.floor( numero_aleatorio_0a4 );
+    
+    
+        var elemento = document.getElementById("eleccion_sombrero_seleccionador");
+        
+        elemento.innerHTML= "Tu casa es ¡¡" + casas[numero_aleatorio_0a3_entero] +"!!";	
+    }
+    </script>
+    </html>
