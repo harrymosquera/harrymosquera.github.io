@@ -8,14 +8,43 @@
     <title>Juego Batalla del cuerpo humano</title>
 </head>
 <body >
-    <div style="height:500px; width:500px; background-color:red;">
-        <img src="linfocitos-b1.jpg" style="position:absolute;">
-        <img src="anticuerpos1.jpg" style="position:absolute;">
-        <img src="basofilo1.jpg" style="position:absolute;">
-        <img src="neutrofilo1.jpg" style="position:absolute;">
-        <img src="macrofago1.jpg" style="position:absolute;">
-        <img src="bacterias1.jpg" style="position:absolute;">
-        <img src="virus1.jpg" style="position:absolute;right:5px;">
+    <div style="height:500px; width:500px; background-color:red;position:relative;">
+        <img src="linfocitos-b1.jpg" style="position:absolute;
+        left:0px;
+        top: 25px;">
+        <img src="anticuerpos1.jpg" style="position:absolute;left:0px;top: 100px;">
+        <img src="basofilo1.jpg" style="position:absolute;left:0px;top: 175px;">
+        <img src="neutrofilo1.jpg" style="position:absolute;left:0px;top: 250px;">
+        <img id="macrofago" src="macrofago1.jpg" style="position:absolute;left:0px;top: 325px;">
+        <img src="bacterias1.jpg" style="position:absolute;right:5px;top:100px;">
+        <img src="virus1.jpg" style="position:absolute;right:5px;top:250px;">
     </div>
+    <script>
+        var pagina = document;
+        pagina.onkeydown = function(evento) {
+                evento = evento || window.event;
+                console.log("keydown: " + evento.keyCode);
+                if ( evento.keyCode === 39 ) {
+                  elemento_macrofago = document.getElementById("macrofago")
+                  var coordenadax = extraer_numero( elemento_macrofago.style.left ) * 1.0;
+                  var coordenadax_nueva = coordenadax + 10;
+                  console.log( coordenadax + " " + coordenadax_nueva );
+                  
+                  elemento_macrofago.style.left =  coordenadax_nueva + 'px';
+//                   elemento_macrofago.style.left = "50px";
+                  
+
+                }
+        }
+        
+        function extraer_numero( cadena ) { 
+            var coincide = cadena.match(/(\d+)/); 
+              
+            if (coincide) { 
+                return coincide[0]; 
+            } 
+        } 
+        
+    </script>
 </body>
 </html>
